@@ -1,0 +1,14 @@
+Changes from baseline tome 2.3:
+
+* Each lasting effect has a speed and owner.
+* Multiple lasting effects on each square.
+* Improved spellbinder and inertia control.
+* Added Eru spell remember the music.
+* Returning ego type for projectiles.
+* More powerful wands can be found in the dungeon.
+* Non-expiring spell effects possible.
+* Mimicry, touch of death etc. do not expire.
+* Multiple brands possible simultaneously.
+* Max value of skill is 50+starting value.
+* Fixed negative skills + 64bit bug.
+* Possessors have normal_mana*spell_freq*4 mana now.

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+from=818
+rarity=$1
+# Element runes should be rarer because there are so many kinds of them
+elem_rarity=$((rarity*2))
+n=$(./rune_elem $from $elem_rarity | grep -c ^N)
+from2=$((from+n))
+n=$(./rune_power $from $rarity | grep -c ^N)
+from3=$((from2+n))
+./rune_elem  $from  $elem_rarity
+./rune_power $from2 $rarity
+./rune_shape $from3 $rarity

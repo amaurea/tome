@@ -1,0 +1,45 @@
+init1.c:	d_head->name_size = 0;
+init1.c:	d_head->text_size = 0;
+init1.c:			                (v1 != d_head->v_major) ||
+init1.c:			                (v2 != d_head->v_minor) ||
+init1.c:			                (v3 != d_head->v_patch))
+init1.c:printf("A: %d vs. %d\n\r", i, d_head->info_num);
+init1.c:			if (i >= d_head->info_num) return (2);
+init1.c:			if (d_head->name_size + strlen(s) + 8 > fake_name_size) return (7);
+init1.c:			if (!d_ptr->name) d_ptr->name = ++d_head->name_size;
+init1.c:			strcpy(d_name + d_head->name_size, s);
+init1.c:			d_head->name_size += strlen(s);
+init1.c:			if (d_head->text_size + strlen(s) + 8 > fake_text_size) return (7);
+init1.c:			if (!d_ptr->text) d_ptr->text = ++d_head->text_size;
+init1.c:			strcpy(d_text + d_head->text_size, s);
+init1.c:			d_head->text_size += strlen(s);
+init1.c:	++d_head->name_size;
+init1.c:	++d_head->text_size;
+init2.c:	                (test.v_major != d_head->v_major) ||
+init2.c:	                (test.v_minor != d_head->v_minor) ||
+init2.c:	                (test.v_patch != d_head->v_patch) ||
+init2.c:	                (test.v_extra != d_head->v_extra) ||
+init2.c:	                (test.info_num != d_head->info_num) ||
+init2.c:	                (test.info_len != d_head->info_len) ||
+init2.c:	                (test.head_size != d_head->head_size) ||
+init2.c:	                (test.info_size != d_head->info_size))
+init2.c:	C_MAKE(d_info, d_head->info_num, dungeon_info_type);
+init2.c:	fd_read(fd, (char*)(d_info), d_head->info_size);
+init2.c:	C_MAKE(d_name, d_head->name_size, char);
+init2.c:	fd_read(fd, (char*)(d_name), d_head->name_size);
+init2.c:	C_MAKE(d_text, d_head->text_size, char);
+init2.c:	fd_read(fd, (char*)(d_text), d_head->text_size);
+init2.c:	d_head->v_major = VERSION_MAJOR;
+init2.c:	d_head->v_minor = VERSION_MINOR;
+init2.c:	d_head->v_patch = VERSION_PATCH;
+init2.c:	d_head->v_extra = 0;
+init2.c:	d_head->info_num = max_d_idx;
+init2.c:	d_head->info_len = sizeof(dungeon_info_type);
+init2.c:	d_head->head_size = sizeof(header);
+init2.c:	d_head->info_size = d_head->info_num * d_head->info_len;
+init2.c:	C_MAKE(d_info, d_head->info_num, dungeon_info_type);
+init2.c:		fd_write(fd, (char*)(d_head), d_head->head_size);
+init2.c:		fd_write(fd, (char*)(d_info), d_head->info_size);
+init2.c:		fd_write(fd, (char*)(d_name), d_head->name_size);
+init2.c:		fd_write(fd, (char*)(d_text), d_head->text_size);
+init2.c:	C_KILL(d_info, d_head->info_num, dungeon_info_type);

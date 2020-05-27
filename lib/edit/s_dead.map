@@ -1,0 +1,20 @@
+# Special level "Dead stuff" in the Amaerua test dungeon.
+#
+# Created for Tome 3.2 on 31/10/11
+# Altered by Omniac
+
+%:special.txt
+
+# Random monster (upto 98 levels ood)
+F:-:1:0:*100
+
+D:XXXXXXXXXX
+D:X--------X
+D:X----->--X
+D:X---.----X
+D:X--------X
+D:X--------X
+D:XXXXXXXXXX
+
+### Starting Location
+P:5:6

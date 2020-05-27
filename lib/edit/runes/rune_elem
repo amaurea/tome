@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+from="$1"
+rarity="$2"
+# Elemental rune raw info. Must be extracted into proper k_info.txt
+# format. Each line is an entry of the form:
+# Name:gf:lvl:freq:col
+echo "
+Electricity	1	0	1	W
+Poison	2	0	1	G
+Acid	3	0	1	B
+Cold	4	0	1	b
+Fire	5	0	1	r
+Suffocation	6	10	1	G
+Corpse Explosion	7	20	10	D
+Plasma	12	15	2	R
+Wave	13	15	2	b
+Water	14	15	1	b
+Light	15	0	1	W
+Darkness	16	0	1	D
+Shards	20	5	1	s
+Sound	21	10	1	v
+Confusion	22	10	1	v
+Force	23	15	2	s
+Inertia	24	15	1	s
+Mana	26	15	2	v
+Ice	28	10	2	w
+Chaos	30	5	1	v
+Nether	31	5	1	u
+Disenchantment	32	5	1	B
+Nexus	33	5	1	v
+Time	34	10	2	D
+Gravity	35	15	2	U
+Wall destruction	40	10	2	s
+Door destruction	41	0	1	s
+Disarm	42	5	1	s
+Wall creation	76	10	2	s
+Door creation	46	15	2	s
+Clone	51	20	7	w
+Polymorph	52	20	7	w
+Heal	53	5	1	y
+Speed	54	15	2	y
+Slow	55	15	2	w
+Pure Confusion	56	10	4	v
+Sleep	57	0	1	s
+Drain	58	20	5	r
+Exile	63	25	2	s
+Rocket	72	10	30	s
+Nuke	73	10	30	g
+Glyph	74	35	5	y
+*Sleep*	75	20	2	D
+Death Ray	77	45	75	s
+Stun	78	10	1	s
+Holy Fire	79	10	2	R
+Hellfire	80	15	2	r
+Disintegrate	81	10	5	w
+Charm	82	5	1	o
+Telekinesis	87	15	5	s
+Identify	91	15	2	W
+Raise Dead	92	5	20	D
+*Identify*	93	25	2	W
+Destruction	94	35	50	s
+Stunfusion	95	15	10	v
+*Stun*	96	15	5	s
+*Confusion*	98	15	5	v
+Fear	102	5	2	D
+Portal	103	25	10	v
+Death	105	50	100	D
+Raise Demon	106	15	50	D
+Unlight	111	45	100	D
+Unholy Drain	112	25	25	D
+Web	113	20	10	o
+" | awk -F '	' '/^[^#]/{
+	if(NF) {
+		n=++i+'$from'
+		printf("\n")
+		printf("N:%d:%s\n",n,$1)
+		printf("G:%%:%s\n",$5)
+		printf("I:106:%d:0\n",$2)
+		printf("W:%d:0:2:%d\n",$3,$3*50)
+		printf("A:%d/%d\n",$3,$4*'$rarity')
+		printf("P:0:1d1:0:0:0\n")
+	}
+}'

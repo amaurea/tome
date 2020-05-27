@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+from="$1"
+rarity="$2"
+# Definition of the shape runes. The actual meaning is given to these
+# in the runecraft code. The format is:
+# name:sval:lvl:rarity
+echo "
+Arrow	0	1	1	w	CAN_AIM
+Self	1	5	1	w	HIT_SELF
+Sphere	2	10	1	w	BALL
+Beam	3	10	2	w	CAN_AIM | BEAM
+Shower	4	15	2	w	SHOWER
+View	5	20	3	w	VIEW
+" | awk -F '	' '/^[^#]/{
+	if(NF) {
+		n=++i+'$from'
+		printf("\n")
+		printf("N:%d:%s\n",n,$1)
+		printf("G:%%:%s\n",$5)
+		printf("I:108:%d:0\n",$2)
+		printf("W:%d:0:2:%d\n",$3,$3*50)
+		printf("A:%d/%d\n",$3,$4*'$rarity')
+		printf("P:0:1d1:0:0:0\n")
+		printf("F:%s\n", $6)
+	}
+}'
