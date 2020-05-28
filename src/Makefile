@@ -147,20 +147,20 @@ CC = gcc
 ## "-lncurses", and you may also need to add "-ltermlib" to the end of the
 ## LIBS on some platforms.
 #
-COPTS = -Wall -O0 -pipe -g
-INCLUDES = -I/usr/X11R6/include
-DEFINES = -DUSE_X11 -DUSE_GCU -DUSE_TRANSPARENCY -DUSE_EGO_GRAPHICS \
-	-DUSE_TRANSPARENCY -DSUPPORT_GAMMA -DGOODSHIELD \
-	-DUSE_PRECISE_CMOVIE -DUSE_UNIXSOCK
-LIBS = -L/usr/X11R6/lib -lX11 -lncurses
+#COPTS = -Wall -O0 -pipe -g
+#INCLUDES = -I/usr/X11R6/include
+#DEFINES = -DUSE_X11 -DUSE_GCU -DUSE_TRANSPARENCY -DUSE_EGO_GRAPHICS \
+#	-DUSE_TRANSPARENCY -DSUPPORT_GAMMA -DGOODSHIELD \
+#	-DUSE_PRECISE_CMOVIE -DUSE_UNIXSOCK
+#LIBS = -L/usr/X11R6/lib -lX11 -lncurses
 
-##
-## Variation -- Only support "main-gcu.c" (not "main-x11.c")
-##
-#COPTS = -Wall -O1 -pipe -g
-#INCLUDES =
-#DEFINES = -DUSE_GCU
-#LIBS = -lncurses -ltermcap
+#
+# Variation -- Only support "main-gcu.c" (not "main-x11.c")
+
+COPTS = -Wall -O0 -pipe -g -std=gnu89
+INCLUDES =
+DEFINES = -DUSE_GCU -DGOODSHIELD
+LIBS = -lncurses
 
 
 ##
